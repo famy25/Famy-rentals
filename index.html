@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Famy Rentals</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f5f7;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #d1d5db;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1f2937, #374151);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .hero h2 {
+      margin: 0 0 15px;
+      font-size: 38px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      background: #f59e0b;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 14px 22px;
+      margin: 6px;
+      border-radius: 8px;
+    }
+
+    .button.dark {
+      background: white;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .rentals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .card p {
+      line-height: 1.6;
+      color: #4b5563;
+    }
+
+    .contact {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
+
+    .contact a {
+      color: white;
+    }
+
+    footer {
+      background: #030712;
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Famy Rentals</h1>
+    <p>Car, Truck, Trailer, Tow Dolly & RV Rentals</p>
+  </header>
+
+  <section class="hero">
+    <h2>Reliable Rentals at Affordable Prices</h2>
+
+    <p>
+      Serving Inman, Boiling Springs, Spartanburg and surrounding areas
+      in South Carolina.
+    </p>
+
+    <a class="button" href="tel:8649216625">Call Now</a>
+
+    <a class="button dark" href="sms:8649216625">
+      Text to Reserve
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>Our Rentals</h2>
+
+    <div class="rentals">
+
+      <div class="card">
+        <h3>Tow Dolly</h3>
+        <p>
+          Easy and affordable transportation for cars and small vehicles.
+          Daily and weekly rental options available.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Iron Bull Trailer</h3>
+        <p>
+          36-foot heavy-duty trailer with a 3-foot extension.
+          Suitable for vehicles, equipment and commercial loads.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Ford F-250</h3>
+        <p>
+          Heavy-duty truck rental for qualified drivers.
+          Driver’s license, insurance and deposit are required.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Wildcat RV</h3>
+        <p>
+          RV available for daily, weekly or monthly rental.
+          Contact us for current availability and pricing.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Check Availability</h2>
+
+    <p>Call or text us with the rental and dates you need.</p>
+
+    <p>
+      <strong>Phone:</strong>
+      <a href="tel:8649216625">864-921-6625</a>
+    </p>
+
+    <a class="button" href="sms:8649216625">
+      Request a Reservation
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Famy Rentals. All rights reserved.
+  </footer>
+
+</body>
+</html>
