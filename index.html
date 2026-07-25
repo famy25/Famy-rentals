@@ -1,209 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Famy Rentals</title>
 
-  <title>Famy Rentals</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+color:#222;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+header{
+background:#0d47a1;
+color:white;
+padding:20px;
+text-align:center;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f5f7;
-      color: #222;
-    }
+header h1{
+margin:0;
+font-size:36px;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 20px;
-      text-align: center;
-    }
+header p{
+font-size:18px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
-    }
+.hero{
+padding:40px 20px;
+text-align:center;
+background:white;
+}
 
-    header p {
-      margin: 8px 0 0;
-      color: #d1d5db;
-    }
+.hero h2{
+font-size:32px;
+margin-bottom:10px;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #1f2937, #374151);
-      color: white;
-      text-align: center;
-      padding: 65px 20px;
-    }
+.hero p{
+font-size:18px;
+color:#555;
+}
 
-    .hero h2 {
-      margin: 0 0 15px;
-      font-size: 38px;
-    }
+.button{
+display:inline-block;
+margin:10px;
+padding:14px 28px;
+background:#0d47a1;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
 
-    .hero p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+.button:hover{
+background:#1565c0;
+}
 
-    .button {
-      display: inline-block;
-      background: #f59e0b;
-      color: #111;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 14px 22px;
-      margin: 6px;
-      border-radius: 8px;
-    }
+.section{
+padding:40px 20px;
+max-width:1000px;
+margin:auto;
+}
 
-    .button.dark {
-      background: white;
-    }
+.card{
+background:white;
+border-radius:10px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 45px 20px;
-    }
+.price{
+font-size:26px;
+color:#0d47a1;
+font-weight:bold;
+}
 
-    .section h2 {
-      text-align: center;
-      font-size: 30px;
-      margin-bottom: 30px;
-    }
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
 
-    .rentals {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 22px;
-    }
-
-    .card p {
-      line-height: 1.6;
-      color: #4b5563;
-    }
-
-    .contact {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 45px 20px;
-    }
-
-    .contact a {
-      color: white;
-    }
-
-    footer {
-      background: #030712;
-      color: #9ca3af;
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Famy Rentals</h1>
-    <p>Car, Truck, Trailer, Tow Dolly & RV Rentals</p>
-  </header>
+<header>
+<h1>Famy Rentals</h1>
+<p>Truck • Trailer • Tow Dolly • RV Rentals</p>
+</header>
 
-  <section class="hero">
-    <h2>Reliable Rentals at Affordable Prices</h2>
+<section class="hero">
 
-    <p>
-      Serving Inman, Boiling Springs, Spartanburg and surrounding areas
-      in South Carolina.
-    </p>
+<h2>Reliable Rentals in South Carolina</h2>
 
-    <a class="button" href="tel:8649216625">Call Now</a>
+<p>
+Rent a Ford F-250, Iron Bull Trailer,
+Tow Dolly or Wildcat RV.
+Clean equipment. Affordable prices.
+</p>
 
-    <a class="button dark" href="sms:8649216625">
-      Text to Reserve
-    </a>
-  </section>
+<a class="button" href="tel:8649216625">📞 Call Now</a>
 
-  <section class="section">
-    <h2>Our Rentals</h2>
+<a class="button" href="sms:8649216625">
+Reserve by Text
+</a>
 
-    <div class="rentals">
+</section>
 
-      <div class="card">
-        <h3>Tow Dolly</h3>
-        <p>
-          Easy and affordable transportation for cars and small vehicles.
-          Daily and weekly rental options available.
-        </p>
-      </div>
+<section class="section">
 
-      <div class="card">
-        <h3>Iron Bull Trailer</h3>
-        <p>
-          36-foot heavy-duty trailer with a 3-foot extension.
-          Suitable for vehicles, equipment and commercial loads.
-        </p>
-      </div>
+<div class="card">
+<h2>Ford F-250</h2>
+<p>Clean and reliable work truck.</p>
+<p class="price">$75 / Day</p>
+</div>
 
-      <div class="card">
-        <h3>Ford F-250</h3>
-        <p>
-          Heavy-duty truck rental for qualified drivers.
-          Driver’s license, insurance and deposit are required.
-        </p>
-      </div>
+<div class="card">
+<h2>Iron Bull Trailer</h2>
+<p>2020 • 36 ft + 3 ft Extension</p>
+<p class="price">$130 / Day</p>
+</div>
 
-      <div class="card">
-        <h3>Wildcat RV</h3>
-        <p>
-          RV available for daily, weekly or monthly rental.
-          Contact us for current availability and pricing.
-        </p>
-      </div>
+<div class="card">
+<h2>Tow Dolly</h2>
+<p>Easy vehicle transport.</p>
+<p class="price">$50 / Day</p>
+</div>
 
-    </div>
-  </section>
+<div class="card">
+<h2>Wildcat RV</h2>
+<p>Perfect for family trips.</p>
+<p class="price">$100 / Day</p>
+</div>
 
-  <section class="contact">
-    <h2>Check Availability</h2>
+</section>
 
-    <p>Call or text us with the rental and dates you need.</p>
+<footer>
 
-    <p>
-      <strong>Phone:</strong>
-      <a href="tel:8649216625">864-921-6625</a>
-    </p>
+<p>📍 South Carolina</p>
 
-    <a class="button" href="sms:8649216625">
-      Request a Reservation
-    </a>
-  </section>
+<p>📞 864-921-6625</p>
 
-  <footer>
-    © 2026 Famy Rentals. All rights reserved.
-  </footer>
+<p>© 2026 Famy Rentals</p>
+
+</footer>
 
 </body>
 </html>
