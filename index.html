@@ -196,10 +196,11 @@ padding:20px;
 .booking button:hover {
   background: #08306b;
 }
-</style>
 </head>
 
 <body>
+
+<script>
 function reserveRental() {
     const vehicle = document.getElementById("vehicle").value;
     const date = document.getElementById("rental-date").value;
@@ -221,7 +222,7 @@ function reserveRental() {
         "sms:8649216625?&body=" + encodeURIComponent(message);
 }
 </script>
-<body>
+
 
 <header>
 <h1>Famy Rentals</h1>
