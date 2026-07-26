@@ -92,10 +92,105 @@ color:white;
 text-align:center;
 padding:20px;
 }
+.booking-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.booking-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-section label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.booking-section input,
+.booking-section select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.reserve-button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.reserve-button:hover {
+    background: #146c43;
+}
 </style>
 
 </head>
+<section class="booking-section">
+    <h2>Reserve Your Rental</h2>
 
+    <label for="vehicle">Choose a vehicle:</label>
+    <select id="vehicle">
+        <option value="2018 Ford F-250">2018 Ford F-250</option>
+        <option value="2016 Ford F-250">2016 Ford F-250</option>
+        <option value="Jeep Cherokee">Jeep Cherokee</option>
+        <option value="Wildcat RV">Wildcat RV</option>
+        <option value="Iron Bull Trailer">Iron Bull Trailer</option>
+        <option value="Tow Dolly">Tow Dolly</option>
+    </select>
+
+    <label for="rental-date">Choose a date:</label>
+    <input type="date" id="rental-date">
+
+    <label for="rental-time">Choose a time:</label>
+    <input type="time" id="rental-time">
+
+    <label for="customer-name">Your name:</label>
+    <input type="text" id="customer-name" placeholder="Enter your name">
+
+    <button type="button" class="reserve-button" onclick="reserveRental()">
+        Reserve Now
+    </button>
+</section>
+
+<script>
+function reserveRental() {
+    const vehicle = document.getElementById("vehicle").value;
+    const date = document.getElementById("rental-date").value;
+    const time = document.getElementById("rental-time").value;
+    const name = document.getElementById("customer-name").value;
+
+    if (!date || !time || !name) {
+        alert("Please enter your name, date, and time.");
+        return;
+    }
+
+    const message =
+        "Hello, my name is " + name +
+        ". I would like to reserve the " + vehicle +
+        " for " + date +
+        " at " + time + ".";
+
+    window.location.href =
+        "sms:8649216625?&body=" + encodeURIComponent(message);
+}
+</script>
 <body>
 
 <header>
