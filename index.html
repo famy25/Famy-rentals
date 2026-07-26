@@ -272,6 +272,43 @@ Reserve by Text
 <p>© 2026 Famy Rentals</p>
 
 </footer>
+<section id="booking" class="booking">
+  <h2>Reserve Your Rental</h2>
 
+  <form action="https://formsubmit.co/galaction89@gmail.com" method="POST">
+
+    <input type="hidden" name="_subject" value="New Famy Rentals Reservation">
+
+    <input type="text" name="Name" placeholder="Your Name" required>
+
+    <input type="tel" name="Phone" placeholder="Phone Number" required>
+
+    <select name="Vehicle" required>
+      <option value="">Select a Rental</option>
+      <option value="2018 Ford F-250">2018 Ford F-250</option>
+      <option value="2016 Ford F-250">2016 Ford F-250</option>
+      <option value="Jeep Cherokee">Jeep Cherokee</option>
+      <option value="Tow Dolly">Tow Dolly</option>
+      <option value="Iron Bull Trailer">Iron Bull Trailer</option>
+      <option value="Wildcat RV">Wildcat RV</option>
+    </select>
+
+    <label for="pickup-date">Pickup Date</label>
+    <input type="date" id="pickup-date" name="Pickup Date" required>
+
+    <label for="pickup-time">Pickup Time</label>
+    <input type="time" id="pickup-time" name="Pickup Time" required>
+
+    <label for="return-date">Return Date</label>
+    <input type="date" id="return-date" name="Return Date" required>
+
+    <label for="return-time">Return Time</label>
+    <input type="time" id="return-time" name="Return Time" required>
+
+    <textarea name="Message" placeholder="Additional details"></textarea>
+
+    <button type="submit">Reserve Now</button>
+  </form>
+</section>
 </body>
 </html>
