@@ -429,13 +429,27 @@ document
         const errorText = await response.text();
         throw new Error(errorText);
       }
-
+await fetch("https://formsubmit.co/ajax/famy25p@gmail.com", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({
+        Name: formData.get("Name"),
+        Phone: formData.get("Phone"),
+        Vehicle: formData.get("Vehicle"),
+        Pickup: `${pickupDate} ${pickupTime}`,
+        Return: `${returnDate} ${returnTime}`,
+        Message: formData.get("Message")
+    })
+});
       alert("Your reservation request was sent successfully!");
       form.reset();
       pickupCalendar.clear();
       returnCalendar.clear();
     } catch (error) {
-      console.error("Reservation error:", error);
+      console.error("Date Reservation:", error);
       alert("The reservation could not be sent. Please try again.");
     }
   });
