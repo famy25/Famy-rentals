@@ -384,6 +384,61 @@ function updateVehicleCalendar() {
 document
     .getElementById("vehicle")
     .addEventListener("change", updateVehicleCalendar);
+const SUPABASE_URL = "https://klkpfpalexzmxrveqsxg.supabase.co";
+const SUPABASE_KEY = "LIPEȘTE_AICI_PUBLISHABLE_KEY";
+
+document
+  .getElementById("reservation-form")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const pickupDate = formData.get("Pickup Date");
+    const pickupTime = formData.get("Pickup Time");
+    const returnDate = formData.get("Return Date");
+    const returnTime = formData.get("Return Time");
+
+    const reservation = {
+      customer_name: formData.get("Name"),
+      phone: formData.get("Phone"),
+      vehicle: formData.get("Vehicle"),
+      pickup_at: `${pickupDate}T${pickupTime}:00`,
+      return_at: `${returnDate}T${returnTime}:00`,
+      message: formData.get("Message") || "",
+      status: "pending"
+    };
+
+    try {
+      const response = await fetch(
+        `${SUPABASE_URL}/rest/v1/reservations`,
+        {
+          method: "POST",
+          headers: {
+            apikey: SUPABASE_KEY="sb_publishable_hBLY1vn6HtNInVUS7nXeSA_YuaUKQ1";
+            Authorization: `Bearer ${SUPABASE_KEY}`,
+            "Content-Type": "application/json",
+            Prefer: "return=minimal"
+          },
+          body: JSON.stringify(reservation)
+        }
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+
+      alert("Your reservation request was sent successfully!");
+      form.reset();
+      pickupCalendar.clear();
+      returnCalendar.clear();
+    } catch (error) {
+      console.error("Reservation error:", error);
+      alert("The reservation could not be sent. Please try again.");
+    }
+  });
 </script>
 </body>
 </html>  
