@@ -344,17 +344,47 @@ Reserve by Text
   
 
 <script>
-flatpickr("#pickup-date", {
+const bookedDates = {
+    "2018 Ford F-250": [],
+    "2016 Ford F-250": [],
+    "Tow Dolly #1": [],
+    "Tow Dolly #2": [],
+    "Iron Bull Trailer": [],
+    "Wildcat RV": []
+};
+
+const returnCalendar = flatpickr("#return-date", {
     minDate: "today",
     dateFormat: "Y-m-d"
 });
 
-flatpickr("#return-date", {
+const pickupCalendar = flatpickr("#pickup-date", {
     minDate: "today",
-    dateFormat: "Y-m-d"
+    dateFormat: "Y-m-d",
+
+    onChange: function(selectedDates) {
+        if (selectedDates.length > 0) {
+            returnCalendar.set("minDate", selectedDates[0]);
+        }
+    }
 });
+
+function updateVehicleCalendar() {
+    const selectedVehicle = document.getElementById("vehicle").value;
+    const unavailableDates = bookedDates[selectedVehicle] || [];
+
+    pickupCalendar.set("disable", unavailableDates);
+    returnCalendar.set("disable", unavailableDates);
+
+    pickupCalendar.clear();
+    returnCalendar.clear();
+    returnCalendar.set("minDate", "today");
+}
+
+document
+    .getElementById("vehicle")
+    .addEventListener("change", updateVehicleCalendar);
 </script>
-
 </body>
 </html>  
 
