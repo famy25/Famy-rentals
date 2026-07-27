@@ -197,15 +197,16 @@ padding:20px;
   background: #08306b;
 }
     </style>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13"></script> 
 </head>
 
 <body>
-<body>
+
 
   <!-- AICI se pune calendarul și formularul de rezervare -->
 
-  <script>
-    function reserveRental() {
+  
 <script>
 function reserveRental() {
     const vehicle = document.getElementById("vehicle").value;
@@ -240,8 +241,7 @@ function reserveRental() {
 <h2>Reliable Rentals in South Carolina</h2>
 
 <p>
-Rent a Ford F-250, Jeep Cheroke, Chevrolet Malibu, Iron Bull Trailer,
-Tow Dolly or Wildcat RV.
+
 Clean equipment. Affordable prices.
 </p>
 
@@ -266,12 +266,6 @@ Reserve by Text
     <p class="price">$60 / Day</p>
     </div>
     
-<div class="card">
-    <img src="7E9323B3-470B-43EE-AC62-491120A77DBB.png" alt="Jeep Cherokee">
-    <h2>Jeep Cherokee</h2>
-    <p>Clean, reliable SUV. Perfect for daily driving and family trips.</p>
-    <p class="price">$50 / Day</p>
-</div>
 <div class="card"><img src="DDD17973-37A3-4E0B-8EB8-A7612E372D67.png" alt="Iron Bull Trailer" style="dth:100%;border-radius:10px;margin-bottom:15px;"> 
 <h2>Iron Bull Trailer</h2>
 <p>2020 • 36 ft + 3 ft Extension</p>
@@ -317,7 +311,6 @@ Reserve by Text
       <option value="">Select a Rental</option>
       <option value="2018 Ford F-250">2018 Ford F-250</option>
       <option value="2016 Ford F-250">2016 Ford F-250</option>
-      <option value="Jeep Cherokee">Jeep Cherokee</option>
       <option value="Tow Dolly">Tow Dolly</option>
       <option value="Iron Bull Trailer">Iron Bull Trailer</option>
       <option value="Wildcat RV">Wildcat RV</option>
@@ -347,6 +340,21 @@ Reserve by Text
 <p>© 2026 Famy Rentals</p>
 
 </footer>
-    
+  
 
-</html>
+<script>
+flatpickr("#pickup-date", {
+    minDate: "today",
+    dateFormat: "Y-m-d"
+});
+
+flatpickr("#return-date", {
+    minDate: "today",
+    dateFormat: "Y-m-d"
+});
+</script>
+
+</body>
+</html>  
+
+
