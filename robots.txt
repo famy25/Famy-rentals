@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://famy25.github.io/Famy-rentals/sitemap.xml
