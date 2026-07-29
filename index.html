@@ -233,7 +233,7 @@ function reserveRental() {
 
 <header>
 <h1>Famy Rentals</h1>
-<p>Truck • Trailer • Tow Dolly • Car • RV Rentals</p>
+<p>Trailer • Tow Dolly • RV Rentals</p>
 </header>
 
 <section class="hero">
@@ -256,17 +256,9 @@ Reserve by Text
 
 <section class="section">
 
-<div class="card"><img src="IMG_6084.jpeg" alt="Ford F-250" style="width:100%;border-radius:10px;margin-bottom:15px;"> 
-<h2>2018 Ford F-250</h2> <p>Clean and reliable work truck.</p>
-<p class="price">$75 / Day</p>
-</div>
-    <div class="card"><img src="1D0F07AA-00B8-40EE-92E2-2D197EE83BF0.png" alt="2016 Ford F-250 Super Duty">
-    <h2>2016 Ford F-250 Super Duty</h2>
-    <p>Reliable heavy-duty work truck. Great for towing, hauling, and job sites.</p>
-    <p class="price">$60 / Day</p>
-    </div>
     
-<div class="card"><img src="DDD17973-37A3-4E0B-8EB8-A7612E372D67.png" alt="Iron Bull Trailer" style="dth:100%;border-radius:10px;margin-bottom:15px;"> 
+<div class="card">
+    <img src="DDD17973-37A3-4E0B-8EB8-A7612E372D67.png" alt="Iron Bull Trailer" style="dth:100%;border-radius:10px;margin-bottom:15px;"> 
 <h2>Iron Bull Trailer</h2>
 <p>2020 • 36 ft + 3 ft Extension</p>
 <p class="price">$130 / Day</p>
@@ -309,8 +301,6 @@ Reserve by Text
 
 <select id="vehicle" name="Vehicle" required>
       <option value="">Select a Rental</option>
-      <option value="2018 Ford F-250">2018 Ford F-250</option>
-      <option value="2016 Ford F-250">2016 Ford F-250</option>
       <option value="Tow Dolly #1">Tow Dolly #1</option>
       <option value="Tow Dolly #2">Tow Dolly #2</option>
       <option value="Iron Bull Trailer">Iron Bull Trailer</option>
@@ -380,7 +370,6 @@ Reserve by Text
 
 <ul>
   <li><strong>Tow Dolly</strong> – $50</li>
-  <li><strong>Ford F-250</strong> – $100</li>
   <li><strong>Iron Bull Trailer</strong> – $150</li>
   <li><strong>Wildcat RV</strong> – $150</li>
 </ul>
@@ -398,8 +387,6 @@ Reserve by Text
 
 <script>
 const bookedDates = {
-    "2018 Ford F-250": [],
-    "2016 Ford F-250": [],
     "Tow Dolly #1": [],
     "Tow Dolly #2": [],
     "Iron Bull Trailer": [],
@@ -504,7 +491,7 @@ alert("Reservation request received!\n\nPlease send your $20 deposit via Zelle t
       returnCalendar.clear();
     } catch (error) {
       console.error("Date Reservation:", error);
-      alert("The reservation could not be sent. Please try again.");
+      alert("The reservation could not be sent. Is reserveded for this day.");
     }
   });
 </script>
