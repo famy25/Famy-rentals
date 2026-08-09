@@ -452,20 +452,17 @@ document
 
     try {
       const response = await fetch(
-        `${SUPABASE_URL}/rest/v1/reservations`,
-        {
-          method: "POST",
-          headers: {
-            headers: {
-  headers: {
-  apikey: SUPABASE_KEY,
-  "Content-Type": "application/json",
-  Prefer: "return=minimal"
-},
-          },
-          body: JSON.stringify(reservation)
-        }
-      );
+  `${SUPABASE_URL}/rest/v1/reservations`,
+  {
+    method: "POST",
+    headers: {
+      apikey: SUPABASE_KEY,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal"
+    },
+    body: JSON.stringify(reservation)
+  }
+);
 
       if (!response.ok) {
         const errorText = await response.text();
