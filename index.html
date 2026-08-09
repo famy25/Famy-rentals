@@ -457,6 +457,7 @@ document
           method: "POST",
           headers: {
             headers: {
+  headers: {
   apikey: SUPABASE_KEY,
   "Content-Type": "application/json",
   Prefer: "return=minimal"
@@ -491,7 +492,7 @@ alert("Reservation request received!\n\nPlease send your $20 deposit via Zelle t
       returnCalendar.clear();
     } catch (error) {
       console.error("Date Reservation:", error);
-      alert("The reservation could not be sent. Is reserveded for this day.");
+alert("The reservation could not be sent. Please try again.");
     }
   });
 </script>
