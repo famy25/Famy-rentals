@@ -258,7 +258,7 @@ Reserve by Text
 
     
 <div class="card">
-    <img src="DDD17973-37A3-4E0B-8EB8-A7612E372D67.png" alt="Iron Bull Trailer" style="dth:100%;border-radius:10px;margin-bottom:15px;"> 
+    <img src="DDD17973-37A3-4E0B-8EB8-A7612E372D67.png" alt="Iron Bull Trailer" style="width:100%;border-radius:10px;margin-bottom:15px;">
 <h2>Iron Bull Trailer</h2>
 <p>2020 • 36 ft + 3 ft Extension</p>
 <p class="price">$130 / Day</p>
@@ -382,9 +382,6 @@ Reserve by Text
   <p>© 2026 Famy Rentals</p>
 </div>
 
-</footer>
-  
-
 <script>
 const bookedDates = {
     "Tow Dolly #1": [],
@@ -427,6 +424,75 @@ document
 const SUPABASE_URL = "https://klkpfpalexzmxrveqsxg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_hBLY1vn6HtNInVUS7nXeSA_YuaUKQ1g";
 
+function dateOnly(value) {
+  return value ? value.slice(0, 10) : "";
+}
+
+function eachDate(startValue, endValue) {
+  const dates = [];
+  const start = new Date(`${dateOnly(startValue)}T12:00:00`);
+  const end = new Date(`${dateOnly(endValue)}T12:00:00`);
+
+  while (start <= end) {
+    dates.push(start.toISOString().slice(0, 10));
+    start.setDate(start.getDate() + 1);
+  }
+
+  return dates;
+}
+
+async function loadBookedDates() {
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/reservations?select=vehicle,pickup_at,return_at,status&status=in.(pending,confirmed)`,
+    { headers: { apikey: SUPABASE_KEY } }
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  Object.keys(bookedDates).forEach((vehicle) => {
+    bookedDates[vehicle] = [];
+  });
+
+  const reservations = await response.json();
+  reservations.forEach((reservation) => {
+    if (bookedDates[reservation.vehicle]) {
+      bookedDates[reservation.vehicle].push(
+        ...eachDate(reservation.pickup_at, reservation.return_at)
+      );
+    }
+  });
+
+  updateVehicleCalendar();
+}
+
+async function hasConflict(vehicle, pickupAt, returnAt) {
+  const query = new URLSearchParams({
+    select: "id",
+    vehicle: `eq.${vehicle}`,
+    status: "in.(pending,confirmed)",
+    pickup_at: `lt.${returnAt}`,
+    return_at: `gt.${pickupAt}`,
+    limit: "1"
+  });
+
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/reservations?${query}`,
+    { headers: { apikey: SUPABASE_KEY } }
+  );
+
+  if (!response.ok) {
+    throw new Error(await response.text());
+  }
+
+  return (await response.json()).length > 0;
+}
+
+loadBookedDates().catch((error) => {
+  console.error("Could not load unavailable dates:", error);
+});
+
 document
   .getElementById("reservation-form")
   .addEventListener("submit", async function (event) {
@@ -440,17 +506,30 @@ document
     const returnDate = formData.get("Return Date");
     const returnTime = formData.get("Return Time");
 
+    const pickupAt = `${pickupDate}T${pickupTime}:00`;
+    const returnAt = `${returnDate}T${returnTime}:00`;
+
+    if (new Date(returnAt) <= new Date(pickupAt)) {
+      alert("Return date and time must be after pickup.");
+      return;
+    }
+
     const reservation = {
       customer_name: formData.get("Name"),
       phone: formData.get("Phone"),
       vehicle: formData.get("Vehicle"),
-      pickup_at: `${pickupDate}T${pickupTime}:00`,
-      return_at: `${returnDate}T${returnTime}:00`,
+      pickup_at: pickupAt,
+      return_at: returnAt,
       message: formData.get("Message") || "",
       status: "pending"
     };
 
     try {
+      if (await hasConflict(reservation.vehicle, pickupAt, returnAt)) {
+        alert("This rental is already reserved during the selected time. Please choose different dates.");
+        return;
+      }
+
       const response = await fetch(
   `${SUPABASE_URL}/rest/v1/reservations`,
   {
@@ -485,6 +564,7 @@ await fetch("https://formsubmit.co/ajax/famy25p@gmail.com", {
 });
 alert("Reservation request received!\n\nPlease send your $20 deposit via Zelle to 503-602-2637.\n\nYour reservation will be confirmed after we receive the deposit. The remaining balance is due in cash at pickup.");
       form.reset();
+      await loadBookedDates();
       pickupCalendar.clear();
       returnCalendar.clear();
     } catch (error) {
@@ -495,5 +575,4 @@ alert("The reservation could not be sent. Please try again.");
 </script>
 </body>
 </html>  
-
 
