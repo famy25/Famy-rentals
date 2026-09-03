@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tow Famy Rentals</title>
+<title>Famy Rentals</title>
 
 <style>
 body{
@@ -232,8 +232,8 @@ function reserveRental() {
 
 
 <header>
-<h1>Tow Famy Rentals</h1>
-<p>Trailer • Tow Dolly </p>
+<h1>Famy Rentals</h1>
+<p>Car • Trailer • Tow Dolly</p>
 </header>
 
 <section class="hero">
@@ -272,6 +272,14 @@ Reserve by Text
     <p class="price">$50 / Day</p>
 </div>
 
+<div class="card">
+    <h2>2016 Jeep Cherokee</h2>
+    <p>150 miles included per rental day.</p>
+    <p>Additional mileage: $0.40 per mile.</p>
+    <p>Refundable security deposit: $200.</p>
+    <p class="price">$40 / Day</p>
+</div>
+
 </section>
 
 
@@ -291,6 +299,7 @@ Reserve by Text
       <option value="">Select a Rental</option>
       <option value="Tow Dolly #1">Tow Dolly #1</option>
       <option value="Tow Dolly #2">Tow Dolly #2</option>
+      <option value="2016 Jeep Cherokee">2016 Jeep Cherokee</option>
     </select>
 
     <label for="pickup-date">Pickup Date</label>
@@ -357,6 +366,7 @@ Reserve by Text
 <ul>
   <li><strong>Tow Dolly</strong> – $50</li>
   <li><strong>Trailer</strong> – $50</li>
+  <li><strong>2016 Jeep Cherokee</strong> – $200</li>
 
 </ul>
 
@@ -372,6 +382,7 @@ Reserve by Text
 const bookedDates = {
     "Tow Dolly #1": [],
     "Tow Dolly #2": [],
+    "2016 Jeep Cherokee": [],
     "Iron Bull Trailer": [],
     "Wildcat RV": []
 };
@@ -561,4 +572,3 @@ alert("The reservation could not be sent. Please try again.");
 </script>
 </body>
 </html>  
-
