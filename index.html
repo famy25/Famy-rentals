@@ -241,7 +241,10 @@ function reserveRental() {
 <h2>Reliable Rentals in South Carolina</h2>
 
 <p>
+    <p class="price">$40 / Day</p>
+</div>
 
+</section>
 Clean equipment. Affordable prices.
 </p>
 
@@ -280,6 +283,19 @@ Reserve by Text
     <p class="price">$40 / Day</p>
 </div>
 
+<div class="card">
+    <img src="BC307CA3-7A5B-4027-9A57-4811A2F393CD.png" alt="Flatbed Trailer">
+    <h2>Flatbed Trailer</h2>
+    <p>Heavy-duty trailer for rent.</p>
+    <p class="price">$100 / Day</p>
+</div>
+
+<div class="card">
+    <h2>Dump Trailer</h2>
+    <p>Perfect for hauling debris, dirt, and landscaping materials.</p>
+    <p class="price">$110 / Day</p>
+</div>
+
 </section>
 
 
@@ -300,7 +316,11 @@ Reserve by Text
       <option value="Tow Dolly #1">Tow Dolly #1</option>
       <option value="Tow Dolly #2">Tow Dolly #2</option>
       <option value="2016 Jeep Cherokee">2016 Jeep Cherokee</option>
-    </select>
+    
+<option value="Flatbed Trailer">Flatbed Trailer</option>
+<option value="Dump Trailer">Dump Trailer</option>
+
+</select>
 
     <label for="pickup-date">Pickup Date</label>
     <input type="date" id="pickup-date" name="Pickup Date" required>
@@ -383,8 +403,10 @@ const bookedDates = {
     "Tow Dolly #1": [],
     "Tow Dolly #2": [],
     "2016 Jeep Cherokee": [],
-    "Iron Bull Trailer": [],
-    "Wildcat RV": []
+"Iron Bull Trailer": [],
+"Flatbed Trailer": [],
+"Dump Trailer": []
+
 };
 
 const returnCalendar = flatpickr("#return-date", {
