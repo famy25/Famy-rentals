@@ -286,8 +286,8 @@ Reserve by Text
 </div>
 
 <div class="card">
-    <img src="1D0F07AA-00B8-40EE-92E2-2D197EE83BF0.png" alt="White 2016 Ford F-250" loading="lazy">
-    <h2>2016 Ford F-250</h2>
+    <img src="1D0F07AA-00B8-40EE-92E2-2D197EE83BF0.png" alt="White 2018 Ford F-250" loading="lazy">
+    <h2>2018 Ford F-250</h2>
     <p class="price">$60 / Day</p>
 </div>
 
@@ -326,7 +326,7 @@ Reserve by Text
       <option value="Tow Dolly #2">Tow Dolly #2</option>
       <option value="2016 Jeep Cherokee">2016 Jeep Cherokee</option>
     
-<option value="2016 Ford F-250">2016 Ford F-250</option>
+<option value="2018 Ford F-250">2018 Ford F-250</option>
 <option value="Flatbed Trailer">Flatbed Trailer</option>
 <option value="Dump Trailer">Dump Trailer</option>
 
@@ -414,7 +414,7 @@ const bookedDates = {
     "Tow Dolly #2": [],
     "2016 Jeep Cherokee": [],
 "Iron Bull Trailer": [],
-"2016 Ford F-250": [],
+"2018 Ford F-250": [],
 "Flatbed Trailer": [],
 "Dump Trailer": []
 
@@ -487,8 +487,9 @@ async function loadBookedDates() {
 
   const reservations = await response.json();
   reservations.forEach((reservation) => {
-    if (bookedDates[reservation.vehicle]) {
-      bookedDates[reservation.vehicle].push(
+    const vehicle = reservation.vehicle === "2016 Ford F-250" ? "2018 Ford F-250" : reservation.vehicle;
+    if (bookedDates[vehicle]) {
+      bookedDates[vehicle].push(
         ...eachDate(reservation.pickup_at, reservation.return_at)
       );
     }
@@ -500,7 +501,9 @@ async function loadBookedDates() {
 async function hasConflict(vehicle, pickupAt, returnAt) {
   const query = new URLSearchParams({
     select: "id",
-    vehicle: `eq.${vehicle}`,
+    vehicle: vehicle === "2018 Ford F-250"
+      ? "in.(2018 Ford F-250,2016 Ford F-250)"
+      : `eq.${vehicle}`,
     status: "in.(pending,confirmed)",
     pickup_at: `lt.${returnAt}`,
     return_at: `gt.${pickupAt}`,
